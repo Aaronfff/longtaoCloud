@@ -32,7 +32,7 @@ public class ThirdTest {
                 //减去10分游戏币后的剩余总面值超过了最大可组合的数值，继续循环
                 continue;
             }
-            if ( mWithoutTen < n - i) {
+            if (mWithoutTen < n - i) {
                 //减去10分游戏币后的剩余总面值不足最小可组合的数值，直接跳出当前循环
                 break;
             }

@@ -2,7 +2,9 @@ package fun.longtao.waiter.mapper.auto;
 
 import fun.longtao.waiter.model.CoffeeOrder;
 import fun.longtao.waiter.model.CoffeeOrderExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -33,8 +35,8 @@ public interface CoffeeOrderMapper {
      * @mbg.generated Wed Sep 02 10:06:39 CST 2020
      */
     @Insert({
-        "insert into t_order_coffee (coffee_order_id, items_id)",
-        "values (#{coffeeOrderId,jdbcType=BIGINT}, #{itemsId,jdbcType=BIGINT})"
+            "insert into t_order_coffee (coffee_order_id, items_id)",
+            "values (#{coffeeOrderId,jdbcType=BIGINT}, #{itemsId,jdbcType=BIGINT})"
     })
     int insert(CoffeeOrder record);
 

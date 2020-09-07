@@ -50,12 +50,12 @@ public class MultiDatasourceDemoApplication implements CommandLineRunner {
 
     @Bean
     @ConfigurationProperties("foo.datasource")
-    public DataSourceProperties fooDataSourceProperties(){
+    public DataSourceProperties fooDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean
-    public DataSource fooDataSource(){
+    public DataSource fooDataSource() {
         DataSourceProperties fooDataSourceProperties = fooDataSourceProperties();
         log.info("数据源地址url：{}", fooDataSourceProperties.getUrl());
         return fooDataSourceProperties.initializeDataSourceBuilder().build();
@@ -63,7 +63,7 @@ public class MultiDatasourceDemoApplication implements CommandLineRunner {
 
     @Bean
     @Resource
-    public JdbcTemplate fooJdbcTemplate(DataSource fooDataSource){
+    public JdbcTemplate fooJdbcTemplate(DataSource fooDataSource) {
         return new JdbcTemplate(fooDataSource);
     }
 
@@ -74,10 +74,9 @@ public class MultiDatasourceDemoApplication implements CommandLineRunner {
     }
 
 
-
     @Bean
     @ConfigurationProperties("bar.datasource")
-    public DataSourceProperties barDataSourceProperties(){
+    public DataSourceProperties barDataSourceProperties() {
         return new DataSourceProperties();
     }
 
@@ -90,49 +89,49 @@ public class MultiDatasourceDemoApplication implements CommandLineRunner {
 
     @Bean
     @Resource
-    public JdbcTemplate barJdbcTemplate(DataSource barDataSource){
+    public JdbcTemplate barJdbcTemplate(DataSource barDataSource) {
         return new JdbcTemplate(barDataSource);
     }
 
     @Override
     public void run(String... args) throws Exception {
         fooJdbcTemplate.execute("CREATE TABLE aaa (ID INT IDENTITY, BAR VARCHAR(64));");
-        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 1,"foo_1");
-        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 2,"foo_2");
-        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 3,"foo_3");
+        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 1, "foo_1");
+        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 2, "foo_2");
+        fooJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 3, "foo_3");
 
         barJdbcTemplate.execute("CREATE TABLE aaa (ID INT IDENTITY, BAR VARCHAR(64));");
-        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 1,"bar_1");
-        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 2,"bar_2");
-        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 3,"bar_3");
+        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 1, "bar_1");
+        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 2, "bar_2");
+        barJdbcTemplate.update("insert into aaa(ID, BAR) values (?, ?)", 3, "bar_3");
     }
 
     @Transactional
-    void fooInit(){
+    void fooInit() {
 
     }
 
     @RequestMapping("/hello")
     @Transactional(transactionManager = "fooTxManager")
-    public Object hello(){
+    public Object hello() {
         log.info("测试事务");
         List<Map<String, Object>> query = fooJdbcTemplate.query("select * from aaa where id = 1 for update", new MyResultSetExtractor());
         fooJdbcTemplate.update("update aaa set BAR = ? where id = ?", "foo_4_foo", 1);
-        if(query == null || query.size() == 0){
+        if (query == null || query.size() == 0) {
             log.info("查询结果为空");
             return "查询结果为空";
         }
-        query.forEach(t-> log.info("id:{};bar:{}", t.get("id"), t.get("bar")));
+        query.forEach(t -> log.info("id:{};bar:{}", t.get("id"), t.get("bar")));
         return query;
     }
 
     @RequestMapping("/test")
     @Transactional(transactionManager = "fooTxManager")
-    public Object test(){
+    public Object test() {
         List<Map<String, Object>> query = barJdbcTemplate.query("select * from aaa where id = 1 for update", new MyResultSetExtractor());
         barJdbcTemplate.update("update aaa set BAR = ? where id = ?", "foo_4_bar", 1);
         assert query != null;
-        query.forEach(item-> log.info("id:{};bar:{}", item.get("id"), item.get("bar")));
+        query.forEach(item -> log.info("id:{};bar:{}", item.get("id"), item.get("bar")));
         return query;
     }
 }

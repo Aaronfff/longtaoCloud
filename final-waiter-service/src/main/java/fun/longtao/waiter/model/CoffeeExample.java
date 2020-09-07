@@ -3,6 +3,7 @@ package fun.longtao.waiter.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import org.joda.money.Money;
 
 public class CoffeeExample {

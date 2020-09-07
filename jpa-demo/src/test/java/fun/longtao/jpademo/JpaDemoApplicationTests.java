@@ -11,7 +11,7 @@ class JpaDemoApplicationTests {
     }
 
     @Test
-    public void test(){
+    public void test() {
 
     }
 

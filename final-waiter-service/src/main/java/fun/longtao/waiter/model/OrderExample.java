@@ -1,9 +1,11 @@
 package fun.longtao.waiter.model;
 
 import fun.longtao.waiter.model.enums.OrderStatus;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import org.joda.money.Money;
 
 public class OrderExample {
@@ -214,8 +216,8 @@ public class OrderExample {
 
         public boolean isValid() {
             return criteria.size() > 0
-                || totalCriteria.size() > 0
-                || stateCriteria.size() > 0;
+                    || totalCriteria.size() > 0
+                    || stateCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {

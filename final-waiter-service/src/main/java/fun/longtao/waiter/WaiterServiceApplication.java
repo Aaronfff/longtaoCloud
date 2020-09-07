@@ -110,7 +110,6 @@ public class WaiterServiceApplication implements CommandLineRunner {
     }
 
 
-
     @RequestMapping("/findByName")
     public Object findCoffee(@RequestParam String name, @RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         //使用mybatis.RowRound作为查询条件，分页不生效

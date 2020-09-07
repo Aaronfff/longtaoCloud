@@ -18,7 +18,7 @@ class WaiterServiceApplicationTests {
     }
 
     @Test
-    public void test(){
+    public void test() {
         try {
             generateArtifacts();
         } catch (Exception e) {

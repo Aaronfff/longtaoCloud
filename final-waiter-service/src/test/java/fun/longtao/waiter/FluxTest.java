@@ -33,8 +33,8 @@ public class FluxTest {
         System.out.println(s);
         long endTime = System.currentTimeMillis();
 
-        System.out.println("middleTime:" + (middleTime -startTime));
-        System.out.println("endTime:" + (endTime -startTime));
+        System.out.println("middleTime:" + (middleTime - startTime));
+        System.out.println("endTime:" + (endTime - startTime));
 
     }
 

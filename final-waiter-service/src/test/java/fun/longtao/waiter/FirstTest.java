@@ -21,7 +21,7 @@ public class FirstTest {
                 //当前值大于临时最大值，则当前值下标赋值给临时最大值下标，原有最大值+1
                 num[index]++;
                 index = i;
-            }else {
+            } else {
                 //当前值小于或等于临时最大值，则当前值+1
                 num[i]++;
             }

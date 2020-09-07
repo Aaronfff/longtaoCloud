@@ -15,8 +15,8 @@ public class MyThread implements Runnable {
 
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = local.get();
-        System.out.println("------"+Thread.currentThread().getId()+"----------");
-        if(simpleDateFormat != null){
+        System.out.println("------" + Thread.currentThread().getId() + "----------");
+        if (simpleDateFormat != null) {
             String format = simpleDateFormat.format(date);
             System.out.println(System.identityHashCode(simpleDateFormat));
             System.out.println(format);

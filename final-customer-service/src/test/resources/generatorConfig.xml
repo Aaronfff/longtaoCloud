@@ -48,14 +48,14 @@
             <!--                            typeHandler="fun.longtao.waiter.handler.impl.MoneyTypeHandler"/>-->
             <columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"/>
         </table>
-<!--        <table tableName="t_order" domainObjectName="Order">-->
-<!--            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
-<!--            <columnOverride column="state" javaType="fun.longtao.waiter.model.enums.OrderStatus"-->
-<!--                            typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>-->
-<!--            <columnOverride column="total" javaType="org.joda.money.Money" jdbcType="BIGINT"-->
-<!--                            typeHandler="fun.longtao.waiter.handler.impl.MoneyTypeHandler"/>-->
-<!--        </table>-->
+        <!--        <table tableName="t_order" domainObjectName="Order">-->
+        <!--            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--            <columnOverride column="state" javaType="fun.longtao.waiter.model.enums.OrderStatus"-->
+        <!--                            typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>-->
+        <!--            <columnOverride column="total" javaType="org.joda.money.Money" jdbcType="BIGINT"-->
+        <!--                            typeHandler="fun.longtao.waiter.handler.impl.MoneyTypeHandler"/>-->
+        <!--        </table>-->
 
-<!--        <table tableName="t_order_coffee" domainObjectName="CoffeeOrder"/>-->
+        <!--        <table tableName="t_order_coffee" domainObjectName="CoffeeOrder"/>-->
     </context>
 </generatorConfiguration>

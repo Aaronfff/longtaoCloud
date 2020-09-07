@@ -24,7 +24,7 @@ public class MoneyJsonComponent {
         }
     }
 
-    public static class MoneySerializer extends JsonSerializer<Money>{
+    public static class MoneySerializer extends JsonSerializer<Money> {
         @Override
         public void serialize(Money value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
             gen.writeNumber(value.getAmount());

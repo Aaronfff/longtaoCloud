@@ -41,7 +41,7 @@ public class CoffeeService {
     }
 
     @CacheEvict
-    public void reloadCoffee(){
+    public void reloadCoffee() {
 
     }
 

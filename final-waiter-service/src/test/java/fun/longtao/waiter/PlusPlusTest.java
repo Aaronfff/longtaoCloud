@@ -15,15 +15,15 @@ public class PlusPlusTest {
 
     }
 
-    static int get(){
+    static int get() {
         int i = 1, n = 0;
-        try{
+        try {
             i++;
-            int b = 0/n;
+            int b = 0 / n;
             return ++i;
-        }catch (Exception e){
+        } catch (Exception e) {
             return ++i;
-        }finally {
+        } finally {
             return ++i;
         }
 

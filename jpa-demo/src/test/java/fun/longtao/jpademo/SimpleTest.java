@@ -42,7 +42,7 @@ public class SimpleTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
 
     }
 }

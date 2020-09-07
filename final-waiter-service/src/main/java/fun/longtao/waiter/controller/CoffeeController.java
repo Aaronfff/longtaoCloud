@@ -45,7 +45,7 @@ public class CoffeeController {
         Coffee coffee1 = coffeeMapper.selectByPrimaryKey(id);
         log.info("coffee second:{}", coffee1.toString());
         String coffeeName = (String) session.getAttribute("coffee_name");
-        if(StringUtils.isEmpty(coffeeName)){
+        if (StringUtils.isEmpty(coffeeName)) {
             session.setAttribute("coffee_name", coffee.getName());
         }
         return coffee;
