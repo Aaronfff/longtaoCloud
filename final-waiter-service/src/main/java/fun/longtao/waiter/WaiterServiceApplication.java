@@ -40,6 +40,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author longtao
+ */
 @SpringBootApplication
 @Slf4j
 @MapperScan("fun.longtao.waiter.mapper")
